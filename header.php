@@ -8,6 +8,8 @@
 
 /* Don't allow direct access to this file */
 if (!defined ('ABSPATH')) exit;
+
+$post_type = get_post_type( $post->ID );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -20,8 +22,13 @@ if (!defined ('ABSPATH')) exit;
 	<?php wp_head(); ?>
 </head>
 	
-<body> <?php // ends in footer.php ?>
+<body class="website<?php if ($post_type == 'attachment') echo ' website--attachment';?>"> <?php // ends in footer.php ?>
+	<div class="website__wrapper<?php if ($post_type == 'attachment') echo ' website__wrapper--attachment';?>"> <?php // ends in footer.php ?>
 	
+	<?php
+	// Don't show header for attachment pages
+	if ($post_type != 'attachment'):
+	?>
 	<header class="websiteHeader">
 		<a href="https://joannaholy.pl/test" class="websiteHeader__item websiteTitle">
 			<h1 class="websiteTitle__title"><?php bloginfo('name'); ?></h1>
@@ -43,3 +50,4 @@ if (!defined ('ABSPATH')) exit;
 		?>
 	
 	</header>
+	<?php endif; // $post_type != 'attachment' ?>
