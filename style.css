@@ -133,21 +133,34 @@ body {
 }
 
 /* Gallery */
-.wp-block-gallery.has-nested-images {
+.wp-block-gallery.has-nested-images,
+.wp-block-gallery.has-nested-images:not(.is-cropped) {
 	display: block;
 	width: 100%;
 	columns: 400px 3;
 	column-gap: 2rem;
 }
 
-.wp-block-gallery.has-nested-images.columns-1 figure.wp-block-image:not(#individual-image) {
+.wp-block-gallery.has-nested-images figure.wp-block-image,
+.wp-block-gallery.has-nested-images figure.wp-block-image:not(#individual-image),
+.wp-block-gallery.has-nested-images.columns-default figure.wp-block-image:not(#individual-image),
+.wp-block-gallery.has-nested-images.columns-1 figure.wp-block-image:not(#individual-image),
+.wp-block-gallery.has-nested-images.columns-2 figure.wp-block-image:not(#individual-image),
+.wp-block-gallery.has-nested-images.columns-3 figure.wp-block-image:not(#individual-image),
+.wp-block-gallery.has-nested-images.columns-4 figure.wp-block-image:not(#individual-image),
+.wp-block-gallery.has-nested-images.columns-5 figure.wp-block-image:not(#individual-image),
+.wp-block-gallery.has-nested-images.columns-6 figure.wp-block-image:not(#individual-image) {
 	display: inline-block;
-	margin: 0 auto 2rem;
+	width: 100%;
+	margin: 1rem auto;
 	padding: .5rem;
 	background-color: #FFF;
 	box-shadow: 0px 0px 10px 0px #AFAFAF;
 }
 
+.wp-block-gallery.has-nested-images:not(.is-cropped) figure.wp-block-image img,
+.wp-block-gallery.has-nested-images figure.wp-block-image img,
+.wp-block-gallery.has-nested-images figure.wp-block-image:not(#individual-image) img,
 .wp-block-gallery.has-nested-images:not(.is-cropped) figure.wp-block-image:not(#individual-image) img {
 	width: 100%;
 	height: auto;
@@ -156,6 +169,8 @@ body {
 }
 
 .wp-block-gallery.has-nested-images figure.wp-block-image figcaption,
+.wp-block-gallery.has-nested-images:not(.is-cropped) figure.wp-block-image figcaption,
+.wp-block-gallery.has-nested-images figure.wp-block-image:not(#individual-image) figcaption,
 .wp-block-gallery.has-nested-images:not(.is-cropped) figure.wp-block-image:not(#individual-image) figcaption {
 	display: flex;
 	position: absolute;
@@ -166,16 +181,22 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	opacity: 1;
+	opacity: 0;
 	background: rgba(175, 175, 175, .5);
 	transition: opacity 1s ease;
 }
 
+.wp-block-gallery.has-nested-images figure.wp-block-image:hover figcaption,
+.wp-block-gallery.has-nested-images:not(.is-cropped) figure.wp-block-image:hover figcaption,
+.wp-block-gallery.has-nested-images figure.wp-block-image:not(#individual-image):hover figcaption,
 .wp-block-gallery.has-nested-images:not(.is-cropped) figure.wp-block-image:not(#individual-image):hover figcaption {
 	opacity: 1;
 }
 
-.wp-block-gallery.has-nested-images figure.wp-block-image:not(#individual-image):hover img {
+.wp-block-gallery.has-nested-images figure.wp-block-image:hover img,
+.wp-block-gallery.has-nested-images:not(.is-cropped) figure.wp-block-image:hover img,
+.wp-block-gallery.has-nested-images figure.wp-block-image:not(#individual-image):hover img,
+.wp-block-gallery.has-nested-images:not(.is-cropped) figure.wp-block-image:not(#individual-image):hover img {
 	filter: blur(3px);
 }
 
