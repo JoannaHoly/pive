@@ -10,16 +10,22 @@
 
 /* Don't allow direct access to this file */
 if (!defined ('ABSPATH')) exit;
+
+$post_type = get_post_type( $post->ID );
 ?>
 
 <?php get_header(); // header.php ?>
 	
-	<main class="websiteContainer">
+	<main class="websiteContainer<?php if ($post_type == 'attachment') echo ' websiteContainer--attachment';?>">
 	<?php
 	if (have_posts()): 
 		while (have_posts()):
 			the_post();
-			get_template_part ('content'); // content.php
+			if ($post_type != 'attachment'):
+				the_content();
+			else:
+				get_template_part ('content-attachment'); // content-attachment.php
+			endif; // $post_type != 'attachment'
 		endwhile; // have_posts ()
 	endif; // have_posts() 
 	?>
