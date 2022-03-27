@@ -12,6 +12,10 @@
  * Global
  * Website Header
  * Website Container
+ * Website Footer
+ *
+ * Gallery
+ *
  * Repairing Gutenberg defaults
  */
 
@@ -19,11 +23,9 @@
 
 body {
 	margin: 2rem;
-	
+	background-color: #ECECEC;
 	font-family: Roboto, sans;
 	font-size: 21px;
-	
-	background-color: #ECECEC;
 }
 
 /* Website Header */
@@ -49,8 +51,8 @@ body {
 
 .websiteTitle {
 	display: inline-block;
-	flex-grow: 1;
 	padding: 1rem;
+	flex-grow: 1;
 	text-align: center;
 }
 
@@ -128,6 +130,53 @@ body {
 	.websiteFooter {
 		max-width: 1500px;
 	}
+}
+
+/* Gallery */
+.wp-block-gallery.has-nested-images {
+	display: block;
+	width: 100%;
+	columns: 400px 3;
+	column-gap: 2rem;
+}
+
+.wp-block-gallery.has-nested-images.columns-1 figure.wp-block-image:not(#individual-image) {
+	display: inline-block;
+	margin: 0 auto 2rem;
+	padding: .5rem;
+	background-color: #FFF;
+	box-shadow: 0px 0px 10px 0px #AFAFAF;
+}
+
+.wp-block-gallery.has-nested-images:not(.is-cropped) figure.wp-block-image:not(#individual-image) img {
+	width: 100%;
+	height: auto;
+	margin: 0;
+	transition: filter 1s ease;
+}
+
+.wp-block-gallery.has-nested-images figure.wp-block-image figcaption,
+.wp-block-gallery.has-nested-images:not(.is-cropped) figure.wp-block-image:not(#individual-image) figcaption {
+	display: flex;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	max-height: 100%;
+	bottom: 0;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	opacity: 1;
+	background: rgba(175, 175, 175, .5);
+	transition: opacity 1s ease;
+}
+
+.wp-block-gallery.has-nested-images:not(.is-cropped) figure.wp-block-image:not(#individual-image):hover figcaption {
+	opacity: 1;
+}
+
+.wp-block-gallery.has-nested-images figure.wp-block-image:not(#individual-image):hover img {
+	filter: blur(3px);
 }
 
 /* Repairing Gutenberg defaults */
