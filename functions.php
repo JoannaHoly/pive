@@ -6,18 +6,18 @@
  * @since 	1.0
  * @version 1.0
  * @author 	Joanna Hoły
- *
+ *****
  * CONTENT:
  *
  * Security
  * Theme directory
- *
+ *****
  * Setup
  ** Theme support
  ** Images sizes
  ** Menus
  ** Widgets
- *
+ *****
  * Enqueue styles and scripts
  ** Paths
  ** Styles
@@ -133,6 +133,7 @@ function pive_enqueue() {
 		wp_enqueue_style ('user', $pathCSS . ('user.css'));
 
 	/** Scripts **/
+	wp_enqueue_script ('jquery.', 'https://code.jquery.com/jquery-3.6.0.min.js');
 	wp_enqueue_script ('scripts', $pathJS . ('scripts.js'));
 	
 } // function pive_enqueue()
