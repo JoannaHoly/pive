@@ -14,12 +14,12 @@ if (!defined ('ABSPATH')) exit;
 
 <?php get_header(); // header.php ?>
 	
-	<main class="websiteContainer<?php $containerMod;?>">
+	<main class="websiteContainer">
 	<?php
 	if (have_posts()): 
 		while (have_posts()):
 			the_post();
-			the_content();
+			get_template_part ('content'); // content.php
 		endwhile; // have_posts ()
 	endif; // have_posts() 
 	?>

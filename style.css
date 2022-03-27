@@ -7,4 +7,131 @@
  * Version: 1.0
  *
  * More styles in: /assets/css/
+ *
+ * CONTENT:
+ * Global
+ * Website Header
+ * Website Container
+ * Repairing Gutenberg defaults
  */
+
+/* Global */
+
+body {
+	margin: 2rem;
+	
+	font-family: Roboto, sans;
+	font-size: 21px;
+	
+	background-color: #ECECEC;
+}
+
+/* Website Header */
+
+.websiteHeader {
+	display: flex;
+	margin: 2rem auto;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+@media (min-width: 1400px) {
+	.websiteHeader {
+		max-width: 1500px;
+	}
+}
+
+.websiteHeader__item {
+	display: inline-block;
+}
+
+.websiteTitle {
+	display: inline-block;
+	flex-grow: 1;
+	padding: 1rem;
+	text-align: center;
+}
+
+.websiteTitle__title {
+	font-family: 'Birthstone Bounce';
+	font-size: 7rem;
+	text-transform: none;
+}
+
+.websiteMenu {
+	flex-grow: 3;
+}
+
+.websiteMenu__container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media (min-width: 1400px) {
+	.websiteMenu__container {
+		justify-content: flex-end;
+	}
+}
+
+.websiteMenu__container .menu-item {
+	position: relative;
+	padding: 1rem 1rem;
+	border-bottom: 4px solid rgba(0, 0, 0, 0);
+	text-align: center;
+	transition: border .5s ease;
+}
+
+@media (min-width: 750px) {
+	.websiteMenu__container .menu-item {
+		padding: 1rem 2rem;
+	}
+}
+
+@media (min-width: 1000px) {
+	.websiteMenu__container .menu-item {
+		padding: 1rem 3rem;
+	}
+}
+
+.websiteMenu__container .menu-item:hover {
+	border-bottom: 4px solid #E69138;
+}
+
+.websiteMenu__container .current-menu-item {
+	border-bottom: 4px solid #92C1C9;
+}
+
+/* Website Container */
+.websiteContainer {
+	margin: 2rem auto;
+	padding: 0 3rem;
+}
+
+@media (min-width: 1400px) {
+	.websiteContainer {
+		max-width: 1500px;
+	}
+}
+
+/* Website Footer */
+.websiteFooter {
+	margin: 2rem auto;
+	padding: 2rem;
+	border-top: 4px solid #92C1C9;
+	text-align: center;
+}
+
+@media (min-width: 1400px) {
+	.websiteFooter {
+		max-width: 1500px;
+	}
+}
+
+/* Repairing Gutenberg defaults */
+.websiteFooter li.widget_block {
+	display: block;
+	list-style: none;
+}

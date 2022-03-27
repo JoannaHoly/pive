@@ -23,10 +23,10 @@ if (!defined ('ABSPATH')) exit;
 <body> <?php // ends in footer.php ?>
 	
 	<header class="websiteHeader">
-		<div class="websiteHeader__titleWrapper websiteTitle"></div>
+		<a href="https://joannaholy.pl/test" class="websiteHeader__item websiteTitle">
 			<h1 class="websiteTitle__title"><?php bloginfo('name'); ?></h1>
 			<h2 class="websiteTitle__subtitle"><?php bloginfo('description'); ?></h2>
-		</div>
+		</a>
 		
 		<?php 
 		/* Main menu */
@@ -36,7 +36,7 @@ if (!defined ('ABSPATH')) exit;
 												'menu_class'			=> 'websiteMenu__container',
 												'menu_id'					=> 'mainMenu',
 												'container'				=> 'nav',
-												'container_class'	=> 'websiteHeader__menu websiteMenu',
+												'container_class'	=> 'websiteHeader__item websiteMenu',
 												'items_wrap'			=> "\n\t\t<ul id=\"%1\$s\" class=\"%2\$s\">\n%3\$s</ul>\n"
 											));
 		endif; // has_nav_menu ('primary')
