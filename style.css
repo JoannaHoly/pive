@@ -10,29 +10,39 @@
  *
  * CONTENT:
  * Global
+ * Website
  * Website Header
  * Website Container
  * Website Footer
  *
  * Gallery
+ * Image Details
  *
- * Repairing Gutenberg defaults
+ * Repairing Gutenberg Defaults
  */
 
 /* Global */
 
-body {
-	margin: 2rem;
+
+/* Website */
+
+.website {
+	position: relative;
 	background-color: #ECECEC;
 	font-family: Roboto, sans;
 	font-size: 21px;
+}
+
+.website__wrapper {
+	width: 100%;
+	height: 100%;
+	padding: 2rem;
 }
 
 /* Website Header */
 
 .websiteHeader {
 	display: flex;
-	margin: 2rem auto;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
@@ -107,7 +117,9 @@ body {
 }
 
 /* Website Container */
+
 .websiteContainer {
+	min-height: 55vh;
 	margin: 2rem auto;
 	padding: 0 3rem;
 }
@@ -119,9 +131,10 @@ body {
 }
 
 /* Website Footer */
+
 .websiteFooter {
-	margin: 2rem auto;
-	padding: 2rem;
+	margin: 1rem auto 0;
+	padding: 1rem;
 	border-top: 4px solid #92C1C9;
 	text-align: center;
 }
@@ -133,6 +146,7 @@ body {
 }
 
 /* Gallery */
+
 .wp-block-gallery.has-nested-images,
 .wp-block-gallery.has-nested-images:not(.is-cropped) {
 	display: block;
@@ -182,6 +196,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	opacity: 0;
+	font-size: 2rem;
 	background: rgba(175, 175, 175, .5);
 	transition: opacity 1s ease;
 }
@@ -200,7 +215,87 @@ body {
 	filter: blur(3px);
 }
 
-/* Repairing Gutenberg defaults */
+/* Image Details */
+
+.website--attachment {
+	height: 100vh;
+	text-align: center;
+	background-color: #ECECEC;
+	border: 1rem solid #FFF;
+}
+
+.website__wrapper--attachment {
+	padding: 0;
+}
+
+.websiteContainer--attachment {
+	margin: 1rem;
+	padding: 0;
+}
+.imgDetails {
+	display: block;
+	position: fixed;
+	width: 55vw;
+	height: 85vh;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.imgDetails__figure {
+	display: grid;
+	height: 90vh;
+	grid-template-columns: 1fr;
+	grid-template-rows: 75% 25%;
+}
+
+.imgDetails__picture {
+	display: flex;
+	height: 100%;
+	padding: 1rem 0;
+	justify-content: center;
+	align-items: end;
+}
+
+.imgDetails__image {
+	height: 90%;
+	object-fit: contain;
+}
+
+.imgDetails__figcaption {
+	height: 90%;
+}
+
+.imgDetails__title {
+	margin: 0 auto 1rem;
+	font-size: 2rem;
+	font-weight: 600;
+}
+
+ /* covers rest of website, when iframe with image details appears */
+.bodyCover {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	opacity: 0;
+	background-color: rgba(0,0,0,.5);
+	transition: opacity .5s ease;
+}
+
+.bodyCover--coverActive {
+	display: block;
+	opacity: 1;
+}
+
+.website__wrapper--coverActive {
+	filter: blur(5px);
+}
+
+/* Repairing Gutenberg Defaults */
 .websiteFooter li.widget_block {
 	display: block;
 	list-style: none;
